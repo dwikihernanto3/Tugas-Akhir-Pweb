@@ -1,0 +1,28 @@
+Imports MySql.Data.MySqlClient
+Imports MySql.Data
+Module modKoneksi
+    Public konek As String = "SERVER = localhost;USERID = root; PASSWORD = ;DATABASE = latih; Convert Zero Datetime = True; Allow Zero Datetime = True;"
+    Public sqlConnection As New MySqlConnection
+    Public sqlCommand As New MySqlCommand
+    Public sqlAdapter As New MySqlDataAdapter
+    Public konfirmasi As New MsgBoxResult
+    Public sqlReader As MySqlDataReader
+    Public cur As New Form
+
+    Public Sub bukaDB()
+        If sqlConnection.State = ConnectionState.Closed Then
+            sqlConnection.ConnectionString = konek
+            sqlConnection.Open()
+            'MsgBox("sukses")
+        End If
+    End Sub
+
+    Public Sub TutupDB()
+        With sqlConnection
+            .Dispose()
+            .Close()
+
+        End With
+    End Sub
+
+End Module

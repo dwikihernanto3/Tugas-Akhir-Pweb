@@ -1,0 +1,108 @@
+Imports MySql.Data.MySqlClient
+Imports MySql.Data
+Public Class Form1
+    Public konek As String = "SERVER = localhost;USERID = root; PASSWORD = ;DATABASE = vb-net; Convert Zero Datetime = True; Allow Zero Datetime = True;"
+    Public sqlConnection As New MySqlConnection
+    Public sqlCommand As New MySqlCommand
+    Public sqlAdapter As New MySqlDataAdapter
+    Public konfirmasi As New MsgBoxResult
+    Public sqlReader As MySqlDataReader
+    Public cur As New Form
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            bukaDB()
+            Dim mDA As New MySqlDataAdapter("SELECT * FROM data_siswa", konek)
+            Dim dt As New DataTable
+            mDA.Fill(dt)
+            DataGridView1.DataSource = dt
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub bukaDB()
+        If sqlConnection.State = ConnectionState.Closed Then
+            sqlConnection.ConnectionString = konek
+            sqlConnection.Open()
+            'MsgBox("sukses")
+        End If
+    End Sub
+
+    Public Sub TutupDB()
+        With sqlConnection
+            .Dispose()
+            .Close()
+
+        End With
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim sqlSimpan As String = "INSERT INTO data_siswa(Nama,Kelas)" & _
+               "VALUES('" & TextBox1.Text & "','" & TextBox2.Text & "')"
+        Try
+            With sqlCommand
+                .CommandText = sqlSimpan
+                .Connection = sqlConnection
+                .ExecuteNonQuery()
+                DataGridView1.Refresh()
+                load_data()
+                MsgBox("Data Pelanggan Berhasil Disimpan", vbInformation, "Tutorial Blog Guzko")
+
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            sqlCommand.Dispose()
+            TutupDB()
+         
+
+        End Try
+    End Sub
+    Public Sub load_data()
+        Try
+            bukaDB()
+            Dim mDA As New MySqlDataAdapter("SELECT * FROM data_siswa", konek)
+            Dim dt As New DataTable
+            mDA.Fill(dt)
+            DataGridView1.DataSource = dt
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Sub IsiTeks(ByVal x As Integer)
+        Try
+           textbox1.Text = DataGridView1.Rows(x).Cells(0).Value
+            TextBox2.Text = DataGridView1.Rows(x).Cells(1).Value
+           
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        IsiTeks(e.RowIndex)
+    End Sub
+    Public Sub hapus_data()
+        Dim pesan As Integer
+        pesan = MsgBox("Apakah anda yakin ingin menghapus data dengan ID Pelanggan : ?", vbQuestion + vbYesNo, )
+        If pesan = vbYes Then
+            Try
+                bukaDB()
+                Dim mDA As New MySqlDataAdapter("DELETE FROM data_siswa WHERE Nama = '" & TextBox1.Text & "'", konek)
+                Dim dt As New DataTable
+                mDA.Fill(dt)
+                DataGridView1.Refresh()
+                load_data()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        hapus_data()
+
+    End Sub
+
+
+End Class
+

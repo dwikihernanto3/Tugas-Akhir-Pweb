@@ -1,0 +1,36 @@
+1.      02H : OUTPUT KARAKTER
+
+Fungsi 2 DOS mengirim karakter ke konsol. CTRL-BREAK aktif. Karakter yang akan ditampilkan disimpan dalam register DL, seperti contoh berikut :
+Mov ah, 2
+Mov DL, ‘*’
+Int 21h
+AL diubah oleh DOS selama pemanggilan int 21h. agar nilainya bias digunakan kembali maka terlebih dahulu harus disimpan dalam stack sebelum pemaggilan int 21h. pada saat selesai pemanggilan int 21h nilai AL dpat iambil kembali.
+2.      05H : OUTPUT PRINTER
+Untuk mecetak karakter, tempatkan karakter dalam DL dan panggil fungsi 5. DOS menunggu sampai printer siap untuk menerima karakter. Output akan keluar keprinter 1(nama perangkat LPT 1). Contoh berikut mencetak karakter dolar ($).
+3.      09H : OUTPUT STRING
+Fungsi 9 menampilkan string karakter pada konsol. Alamat offset string harus ada dalam DX, dan string harus diakhiri oleh karakter dolar ($).
+Contoh :
+Mov ah, 9
+Mov dx, offset string
+Int 21h
+…
+…
+String db ‘hallo kota bandung.’,Odh, Oah,’$’
+
+inputtt
+ 
+01H : INPUT KONSOL DENGAN ECHO
+Fungsi 1 DOS menunggu karakter yang akan ditampilkan yang diinputkan dari konsol dan menyimpannya dalam register AL. (karakter yang sedang berada dalam buffer secara otomatis akan disimpan kedalam AL).
+2.      06H : INPUT OUTPUT KONSOL LANGSUNG
+Fungsi 6 DOS melakukan proses baca atau tulis pada konsol. CTRL-BREAK tidak aktif dan tidak ada filter terhadap karakter. Untuk meminta konsol inpt (tanpa menunggu), register DL harus ber nilai 0FFh.
+3.      07H : INPUT KONSOL LANGSUNG
+Fungsi 7 menunggu karakter yang tidak terfilter dari konsol. Karakter tidak ditampilkan di konsol dan CTRL-BREAK aktif. Fungsi input ini cocok untuk karakter khusus seperti karakter fungsi dan panah kursor.
+4.      08H : INPUT KONSOL TANPA ECHO
+Fungsi 8 menunggu karakter yang tidak difilter dari konsol tanpa menampilkannya, sementara CTRL-BREAK aktif. Karakter disimpan dalam register AL. fungsi input ini cocok untuk larakter khusus.
+5.      0AH : BUFFER INPUT KONSOL
+Fungsi 0Ah membaca string karakter sampai 255 karakter dari konsol dan menyimpannya dalam buffer. Enter digunakan untuk mengakhiri input. CTRL-BREAK aktif dan seluruh karakter ditampilkan pada konsol.
+
+Register-register
+Dalam CPU, register-register digunakan untuk menyimpan data secara sementara. Informasi dapat berupa data byte yang hendak diproses atau sebuah data alamat yang menunjuk pada data yang lain. Register-register dari 8051 pada umumnya adalah berupa register 8-bit. Dalam 8051 hanya ada satu jenis data yakni data 8-bit (sama dengan namanya yakni komputer 8-bit). Register 8-bit tersebut ditunjukkan dalam diagram mulai dari MSB (Most Significant Bit) / D7 sampai pada LSB (Least Significant bit) / D0. Dengan type data 8-bit tersebut, setiap data yang lebih besar dari 8-bit harus dipecah menjadi beberapa bagian data 8-bit sebelum dapat diproses. Mengingat banyak register dalam 8051, kita akan berkonsentrasi pada beberapa register yang paling sering digunakan.
+ 
+Register yang paling banyak digunakan adalah A (Accumulator), B, R0, R1, R2, R3, R4, R5, R6, R7, DPTR (DataPointer), dan PC (Program Counter). Semua register tersebut adalah register 8-bit kecuali DPTR dan PC. Akumulator atau register A, digunakan dalam semua instruksi aritmatika dan logika. Untuk mengerti penggunaan dari register tersebut, kita dapat melihat mereka dalam konteks dari dua buah instruksi sederhana, MOV dan ADD.

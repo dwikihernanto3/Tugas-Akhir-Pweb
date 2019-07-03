@@ -1,0 +1,115 @@
+  body{
+    background-image: url('/img/b.jpg');
+    background-size: cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+.layout{ 
+    background-color: white;
+    width: 100%;
+    height: 515px;
+    margin-top: -20px;
+    
+    }
+.me
+{
+    width: 400px;
+    height: 496px;
+    margin-top:px;
+    margin-left:0px; 
+
+    
+}
+     .biodata p
+{ 
+    background-color: transparent;
+    width: 0px;
+    height: 0px;
+    margin-left: 37%;
+    margin-top:-480px;
+    font-size: 55px;
+    font-family:Candara;
+    font-weight: bold;
+    color: #605f5f; 
+    }
+     .x p
+{ 
+    background-color: transparent;
+    width: 0px;
+    height: 0px;
+    margin-left: 37%;
+    margin-top:70px;
+    font-size: 20px;
+    font-family:;
+    color: #7c7b7b;
+    }
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border:;
+  text-align: left;
+  padding: 8px;
+}
+
+.tbl{
+    width: 600px;
+    height: 300px;
+    margin-left: 470px;
+}
+.images{
+    background-image: url('../img/foto.jpg');
+
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+}
+.header ul{
+    background-color: black;
+    width: 100%;
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    list-style-type: none;
+    opacity: 0.7;
+
+}
+.header li{
+    float: left;
+}
+.header li a{
+    display: block;
+    text-align: center;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: Calibri Light;
+    color: white;
+}
+.header li a:hover{
+    background-color: red;
+}
+.header li a:visited{
+    background-color: lightgray;
+}
+
+
+li a:hover:not(.active) {
+  background-color: red;
+}
+.footer{
+    background-color: black;
+    width: 100%;
+    height: 40px;
+    opacity: 0.7;
+}
+
+
+
+

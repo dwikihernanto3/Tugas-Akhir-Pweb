@@ -1,0 +1,118 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>PEMROGRAMAN WEB BIODATA</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--Code css yang menghubungkan file dengan font google, code ini hanya akan berfungsi jika kita connect dengan internet!-->
+  <script language="javascript" src="js/js2.js"></script><!--Code Yang berfungsi untuk memanggil fungsi yang telah di buat sebelumnya di file eksternal JS!-->
+ <!--Code Css yang di gunakan untuk memanggil fungsi Css yang telah di buat sebelumnya di file eksternal!-->
+<style type="text/css">
+  @import "style/css3.css";/*-Code Css yang di gunakan untuk memanggil fungsi Css yang telah di buat sebelumnya di file eksternal!*/
+</style>
+<body>
+  <div class="images"><!--Div class yang di namai iamges yang berungsi untuk mengatur gambar yang ada ddi dalam div tersebut!-->
+  </div>
+<div class="topnav"><!-- Div class yang di gunakan untuk mengatur bagian navbar!-->
+  <a class="active" href="index.html">Home</a><!-- Tag Hyperlink Yang menghubungkan ke index.html Jika di tekan!-->
+  <a href="bio.html">About</a><!-- Tag Hyperlink Yang menghubungkan ke bio.html Jika di tekan!-->
+  <a href="lihat-data.php">See-Data</a><!-- Tag Hyperlink Yang menghubungkan ke lihat-data.html Jika di tekan!-->
+  <div class="search-container"><!-- Div class yang di gunakan untuk mengatur bagian form cari agar lebih menarik!-->
+     <form name="formcari" onSubmit="cari()"><!-- onSubmit() berfungsi untuk menghubungkan  tag dengan java script yang di buat !-->
+       <input class="search" name="keyword" type="text" placeholder="Cari..." required>   
+      <button type="submit" value="Cari" onclick="myFunction()"><i class="fa fa-search"></i></button><!--Onclick="myfunction" berfungsi untuk menghubungan tag html dengan fungsi java script yang di buat agar lebih menarik!-->
+    </form>
+  </div>
+</div>
+  <br>
+</div>
+    <div class="wk">
+    <button id="demo" class="button" onclick="tampil()">Waktu Saat ini</button>
+  </div>
+<div class="menu1">
+</div>
+<div class="menu2">
+
+</div>
+  <div class="menu3"></div>
+
+<<div class="layout">
+    <img src="img/gm.jpg" class="me">
+    <div class="layout2">
+    </div>
+</div>
+  <div class="biodata">
+      <p>Dwiki&nbspHernanto</p>
+  </div>
+  <div class="x">
+    <p>Belive&nbspthat&nbspexperience&nbspcan&nbspmature&nbspme&nbsp!</p>
+    <hr align="right" width="50%" style="margin-left: 480px;margin-top: 45px;">
+  </div>
+  <div class="tbl">
+<table>
+  <tr>
+    <th>AGE</th>
+    <td>19</td>
+  </tr>
+    <tr>
+    <th>DATE OF BIRTH</th>
+    <td>Palu,Januari,03,2000</td>
+  </tr>
+  <tr>
+  <tr>
+    <th>ADDRESS</th>
+    <td>Ringroad Selatan Street,Bantul</td>
+  </tr>
+  <tr>
+    <th>EMAIL</th>
+    <td>dwikihernanto03@gmail.com</td>
+  </tr>
+  <tr>
+    <th>PHONE</th>
+    <td>0878-5511-0517</td>
+  </tr>
+      <tr>
+    <th>EDUCATION</th>
+    <td>Informatics Engineering</td>
+  </tr>
+
+      <tr>
+    <th>COLLEGE</th>
+    <td>Ahmad Dahlan University</td>
+  </tr>
+    <tr>
+    <th>Hobby</th>
+    <td>Traveling and Photography</td>
+  </tr>
+   <tr>
+    <th>SOCIAL MEDIA (Instagram)</th>
+    <td>@dwikihernanto03</td>
+  </tr>
+</table>
+</div>
+<br><br>
+<div class="layout3">
+  <br>
+<h2 style="color: white; text-align: center;" >Sign Up</h2>
+<center>
+<div class="ala">
+  <form action="proses.php" method="post" enctype="multipart/form-data">
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <br>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <br>
+    <input type="text" id="lname" name="email" placeholder="Your Email">
+    <br>
+    <textarea name="address" placeholder="Your address..."></textarea>
+    <br>
+    <input type="file" name="fileUpload" value="file">
+    <center><input type="submit" value="Submit"  name="kirim" onclick="myFunction2()"></center>
+  </form>
+</div>
+</center>
+</div>
+<script type="text/javascript">
+
+
+</script>
+</body>
+</html>
